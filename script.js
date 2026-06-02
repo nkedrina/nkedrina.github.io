@@ -42,6 +42,8 @@ let width;
 let height;
 let imageData;
 let frame = 0;
+let mouseX = 0;
+let mouseY = 0;
 
 function resize() {
     width = canvas.width = window.innerWidth;
@@ -50,6 +52,10 @@ function resize() {
 }
 
 window.addEventListener("resize", resize);
+window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
 resize();
 
 function clamp(value, min, max) {
@@ -72,6 +78,13 @@ function render() {
             const nx = x + tx;
             const ny = y + ty;
 
+            // Calculate distance from mouse
+            const dx = x - mouseX;
+            const dy = y - mouseY;
+            const distSq = dx * dx + dy * dy;
+            const dist = Math.sqrt(distSq);
+            const mouseInfluence = Math.max(0, 1 - (dist / 400)) * 0.35;
+
             // Layer 1: Fine detail noise
             const n1a = Math.sin((nx * noiseConfig.layer1.xFreq) + frame * noiseConfig.layer1.phaseX);
             const n2a = Math.cos((ny * noiseConfig.layer1.yFreq) - frame * noiseConfig.layer1.phaseY);
@@ -79,17 +92,17 @@ function render() {
             const noisea = (n1a + n2a + n3a) / 3;
 
             // Layer 2: Coarse structure noise
-            const n1b = Math.sin((nx * noiseConfig.layer2.xFreq) + frame * noiseConfig.layer2.phaseX * 0.7);
-            const n2b = Math.cos((ny * noiseConfig.layer2.yFreq) - frame * noiseConfig.layer2.phaseY * 0.7);
-            const n3b = Math.sin(((nx + ny) * noiseConfig.layer2.diagFreq) + frame * noiseConfig.layer2.phaseDiag * 0.7);
+            const n1b = Math.sin((nx * noiseConfig.layer2.xFreq) + frame * noiseConfig.layer2.phaseX * 0.7 + mouseInfluence * 2);
+            const n2b = Math.cos((ny * noiseConfig.layer2.yFreq) - frame * noiseConfig.layer2.phaseY * 0.7 + mouseInfluence * 2);
+            const n3b = Math.sin(((nx + ny) * noiseConfig.layer2.diagFreq) + frame * noiseConfig.layer2.phaseDiag * 0.7 + mouseInfluence * 2);
             const noiseb = (n1b + n2b + n3b) / 3;
 
             // Blend layers
-            const noise = (noisea * noiseConfig.layer1.weight) + (noiseb * noiseConfig.layer2.weight);
+            const noise = (noisea * noiseConfig.layer1.weight) + (noiseb * noiseConfig.layer2.weight) + mouseInfluence;
 
             const sharp = Math.pow((noise + 1) * 0.5, noiseConfig.sharpen) * 2 - 1;
             const brightness = noiseConfig.brightnessBase + sharp * noiseConfig.brightnessRange;
-            const blue = clamp(noiseConfig.color.bBase + brightness, 0, noiseConfig.color.bMax);
+            const blue = clamp(noiseConfig.color.bBase + brightness + mouseInfluence * 40, 0, noiseConfig.color.bMax);
 
             data[i]     = noiseConfig.color.r;
             data[i + 1] = noiseConfig.color.g;
