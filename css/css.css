@@ -178,13 +178,14 @@ h1{
     transition:
         transform .25s ease,
         box-shadow .25s ease,
-        border-color .25s ease;
+        border-color .25s ease,
+        border-width .25s ease;
 }
 
 .card:hover{
     transform:translateY(-6px);
 
-    border-color:rgba(177,204,255,.25);
+    border:2px solid rgba(177,204,255,.35);
 
     box-shadow:
         0 16px 40px rgba(0,0,0,.30);
@@ -219,7 +220,7 @@ h1{
     background:var(--card4);
 }
 
-@media (max-width:900px){
+@media (max-width:1150px){
 
     .layout{
         flex-direction:column;
@@ -245,7 +246,7 @@ h1{
     }
 }
 
-@media (max-width:420px){
+@media (max-width:320px){
 
     body{
         padding:24px 12px;
