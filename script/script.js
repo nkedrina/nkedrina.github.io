@@ -30,8 +30,8 @@ const noiseConfig = {
         weight: 0.4
     },
     
-    brightnessBase: 50,
-    brightnessRange: 100,
+    brightnessBase: 80,
+    brightnessRange: 120,
     sharpen: 2,
     
     // Mouse influence parameters
