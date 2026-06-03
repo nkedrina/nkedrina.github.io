@@ -30,6 +30,12 @@ const noiseConfig = {
     brightnessBase: 12,
     brightnessRange: 46,
     sharpen: 1.9,
+    
+    // Mouse influence parameters
+    mouseInfluenceStrength: 0.45,
+    mouseInfluenceRadius: 400,
+    mouseBrightnessBoost: 80,
+    
     color: {
         r: 0,
         g: 0,
@@ -83,7 +89,7 @@ function render() {
             const dy = y - mouseY;
             const distSq = dx * dx + dy * dy;
             const dist = Math.sqrt(distSq);
-            const mouseInfluence = Math.max(0, 1 - (dist / 400)) * 0.35;
+            const mouseInfluence = Math.max(0, 1 - (dist / noiseConfig.mouseInfluenceRadius)) * noiseConfig.mouseInfluenceStrength;
 
             // Layer 1: Fine detail noise
             const n1a = Math.sin((nx * noiseConfig.layer1.xFreq) + frame * noiseConfig.layer1.phaseX);
@@ -102,7 +108,7 @@ function render() {
 
             const sharp = Math.pow((noise + 1) * 0.5, noiseConfig.sharpen) * 2 - 1;
             const brightness = noiseConfig.brightnessBase + sharp * noiseConfig.brightnessRange;
-            const blue = clamp(noiseConfig.color.bBase + brightness + mouseInfluence * 40, 0, noiseConfig.color.bMax);
+            const blue = clamp(noiseConfig.color.bBase + brightness + mouseInfluence * noiseConfig.mouseBrightnessBoost, 0, noiseConfig.color.bMax);
 
             data[i]     = noiseConfig.color.r;
             data[i + 1] = noiseConfig.color.g;
