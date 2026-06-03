@@ -246,10 +246,50 @@ h1{
     }
 }
 
-@media (max-width:320px){
+@media (max-width:780px){
 
-    body{
-        padding:24px 12px;
+    .layout{
+        gap:36px;
+    }
+
+    .avatar{
+        width:190px;
+        height:190px;
+    }
+
+    .grid{
+        max-width:100%;
+        gap:18px;
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+        min-height:150px;
+        padding:24px;
+    }
+
+    h1{
+        font-size:38px;
+    }
+
+    .nickname,
+    .bio{
+        font-size:15px;
+    }
+
+    .card-title{
+        font-size:20px;
+    }
+
+    .card-subtitle{
+        font-size:14px;
+    }
+}
+
+@media (max-width:520px){
+
+    .layout{
+        gap:28px;
     }
 
     .avatar{
@@ -257,17 +297,24 @@ h1{
         height:170px;
     }
 
+    .grid{
+        max-width:100%;
+        gap:14px;
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+        min-height:140px;
+        padding:22px;
+    }
+
     h1{
         font-size:34px;
     }
 
+    .nickname,
     .bio{
-        font-size:16px;
-    }
-
-    .card{
-        min-height:130px;
-        padding:20px;
+        font-size:14px;
     }
 
     .card-title{
@@ -276,6 +323,72 @@ h1{
 
     .card-subtitle{
         font-size:13px;
+    }
+}
+
+@media (max-width:460px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    body{
+        padding:24px 14px;
+    }
+
+    .card{
+        min-height:130px;
+        padding:20px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    .nickname,
+    .bio{
+        font-size:13px;
+    }
+
+    .card-title{
+        font-size:17px;
+    }
+
+    .card-subtitle{
+        font-size:12px;
+    }
+}
+
+@media (max-width:320px){
+
+    body{
+        padding:24px 20px;
+    }
+
+    .avatar{
+        width:150px;
+        height:150px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .bio{
+        font-size:13px;
+    }
+
+    .card{
+        min-height:120px;
+        padding:18px;
+    }
+
+    .card-title{
+        font-size:16px;
+    }
+
+    .card-subtitle{
+        font-size:12px;
     }
 }
 
