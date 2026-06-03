@@ -98,7 +98,7 @@ a, button {
 
     margin-bottom:24px;
 
-    border:3px solid rgba(177,204,255,.25);
+    /* border:3px solid rgba(177,204,255,.25); */
 
     box-shadow:
         0 24px 60px rgba(0,0,0,.45);
