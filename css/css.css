@@ -231,6 +231,18 @@ h1{
     text-shadow: black 1px 1px 15px;
 }
 
+.card-footnote{
+    position:absolute;
+    bottom:-18px;
+    left:8px;
+    right:8px;
+    font-size:8px;
+    color:rgba(177,204,255,.4);
+    font-style:italic;
+    line-height:1.2;
+    text-shadow: none;
+}
+
 .card1{
     background:var(--card1);
 }
