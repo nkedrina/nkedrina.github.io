@@ -60,7 +60,8 @@ a, button {
 
     z-index:-1;
 
-    opacity:1;
+    opacity:.75;
+    filter: blur(1px);
     mix-blend-mode:normal;
 
     pointer-events:none;
@@ -356,6 +357,8 @@ h1{
 
     .grid{
         grid-template-columns:1fr;
+        justify-items:center;
+        gap:16px;
     }
 
     body{
@@ -363,6 +366,8 @@ h1{
     }
 
     .card{
+        width:100%;
+        max-width:320px;
         min-height:130px;
         padding:20px;
     }
@@ -388,12 +393,16 @@ h1{
 @media (max-width:320px){
 
     body{
-        padding:24px 20px;
+        padding:20px 16px;
     }
 
     .avatar{
         width:150px;
         height:150px;
+    }
+
+    .grid{
+        gap:12px;
     }
 
     h1{
@@ -405,8 +414,10 @@ h1{
     }
 
     .card{
-        min-height:100px;
-        padding:10px;
+        width:100%;
+        max-width:280px;
+        min-height:110px;
+        padding:14px;
     }
 
     .card-title{
