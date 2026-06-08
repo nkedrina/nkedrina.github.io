@@ -9,10 +9,7 @@
     --title:#B1CCFF;
     --bio:#1F7CEE;
 
-    --card1:rgba(177,204,255,.14);
-    --card2:rgba(132,178,255,.16);
-    --card3:rgba(89,151,255,.18);
-    --card4:rgba(52,126,255,.20);
+    --card1:rgba(75, 146, 233, 0.14);
 
     --cardText:#B1CCFF;
 
@@ -97,9 +94,9 @@ a, button {
     border-radius:32px;
     overflow:hidden;
 
-    margin-bottom:24px;
+    margin-bottom:20px;
 
-    /* border:3px solid rgba(177,204,255,.25); */
+    /* border:3px solid rgba(31, 124, 238,.25); */
 
     box-shadow:
         0 24px 60px rgba(0,0,0,.45);
@@ -114,7 +111,7 @@ a, button {
 
 h1{
     font-family:Helvetica, Arial, sans-serif;
-    font-size:40px;
+    font-size:35px;
     font-weight:700;
     line-height:1;
 
@@ -134,7 +131,7 @@ h1{
     color:var(--bio);
 
     /* white-space:pre-line; */
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-weight: bold;
     letter-spacing: 5px;
 }
@@ -248,15 +245,15 @@ h1{
 }
 
 .card2{
-    background:var(--card2);
+    background:var(--card1);
 }
 
 .card3{
-    background:var(--card3);
+    background:var(--card1);
 }
 
 .card4{
-    background:var(--card4);
+    background:var(--card1);
 }
 
 @media (max-width:1150px){
