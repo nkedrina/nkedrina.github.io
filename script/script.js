@@ -2,7 +2,7 @@ const canvas = document.getElementById("noise");
 const ctx = canvas.getContext("2d", { alpha: true });
 
 const noiseConfig = {
-    speed: 0,
+    speed: 0.03,
     movementAmplitude: 0,
     
     // Performance: pixel step (2 = every 2nd pixel, faster but lower quality)
@@ -31,7 +31,7 @@ const noiseConfig = {
     },
     
     brightnessBase: 80,
-    brightnessRange: 120,
+    brightnessRange: 150,
     sharpen: 2,
     
     // Mouse influence parameters
