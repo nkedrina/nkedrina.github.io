@@ -47,11 +47,11 @@ const noiseConfig = {
     },
     // Click ripple effect
     clickRipple: {
-        duration: 900, // ms
-        maxRadius: 500,
+        duration: 1200, // ms
+        maxRadius: 1000,
         // голубой / бирюзовый рябь
         colorBoost: { r: 55, g: 0, b: 0 },
-        blurTarget: 0.5 // sharpen value when fully affected
+        blurTarget: 0.1 // sharpen value when fully affected
     },
     
     color: {
