@@ -1,5 +1,4 @@
-
-    (function () {
+(function () {
         'use strict';
 
         /* ==========================================================
@@ -575,6 +574,22 @@
             quickFocus = null;
         }
 
+        /* ================== Навигация по отдельным HTML-файлам ================== */
+        function normalizeInitialPath() {
+            if (location.hash) return;
+            var page = (location.pathname || '').split('/').pop() || 'index.html';
+            var map = {
+                'index.html': '/',
+                'about.html': '/about',
+                'portfolio.html': '/portfolio',
+                'exhibitions.html': '/exhibitions',
+                'contacts.html': '/contacts'
+            };
+            if (map[page]) {
+                location.hash = '#' + map[page];
+            }
+        }
+
         /* ================== Роутер ================== */
         var main = $('#main'), hdr = $('#hdr'), current = null;
         function setHero() {
@@ -734,5 +749,6 @@
                 if (document.title !== l) document.title = l;
             }).observe(titleEl, { childList: true });
         }
+        normalizeInitialPath();
         route();
     })();
