@@ -244,7 +244,7 @@
         main.classList.remove('enter'); void main.offsetWidth; main.classList.add('enter');
         document.body.classList.toggle('home', page === '/');
         document.querySelectorAll('.nav a').forEach(function (a) { a.getAttribute('data-p') === page ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
-        if (page === '/project') document.title = PROJECTS.filter(function (p) { return p.id === pid; })[0].title + ' — ' + A.name; else document.title = (page === '/' ? A.name + ' — ' : titles[page] + ' — ') + (page === '/' ? 'Медиахудожник' : A.name);
+        document.title = A.name;
         hydrate(main); if (page === '/') setHero(); window.scrollTo(0, 0); hdr.classList.remove('hide'); lastY = 0; onScroll();
     }
     function setNav(key) { document.querySelectorAll('.nav a').forEach(function (a) { a.getAttribute('data-p') === key ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); }); }
@@ -258,7 +258,7 @@
         var key = m ? '/project/' + pid : page; var fresh = false;
         if (key !== current) { closeModal(); current = key; render(page, pid); fresh = true; }
         setNav(toC ? '/contacts' : (m ? '/portfolio' : page));
-        if (!m) { closeModal(); if (current) document.title = (current === '/' ? A.name + ' — ' : titles[current] + ' — ') + (current === '/' ? 'Медиахудожник' : A.name); if (toC) scrollToContacts(!fresh); else if (!fresh && page === '/') window.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }); }
+        if (!m) { closeModal(); if (current) document.title = A.name; if (toC) scrollToContacts(!fresh); else if (!fresh && page === '/') window.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }); }
     }
 
     var lastY = 0, ticking = false;

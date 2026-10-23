@@ -308,7 +308,7 @@
             return '' +
                 '<section class="hero" id="hero" aria-label="Главный экран"><div class="hero-in">' + photoFig('hero-ph') + '<div class="hero-txt"><p class="hero-handle">' + esc(A.handle) + '</p><h1>' + esc(A.name) + '</h1><p class="hero-role">' + esc(A.role) + '<br>' + cityLine() + '</p></div></div>' +
                 '<div class="hero-bot"><button class="hero-tgl" type="button" data-theme-toggle aria-label="Сменить тему"><span class="sw" aria-hidden="true"><span class="kb"><i class="fa-solid fa-moon m"></i><i class="fa-solid fa-sun s"></i></span></span><span>сменить тему</span></button><button class="hint" type="button" data-scroll="#about" aria-label="Прокрутить вниз"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button></div></section>' +
-                '<section class="sec" id="about" aria-labelledby="h-about"><div class="wrap"><div class="about"><div class="rv">' + photoFig('') + (A.photo ? '' : '<p class="cap-note">Заглушка: укажите фото в A.photo</p>') + '</div><div class="about-txt rv"><h2 class="title" id="h-about">Обо мне</h2>' + dlRow() + '<p class="lead2">' + esc(A.shortBio) + '</p><p class="soft">' + esc(A.practice) + '</p><a class="more" href="#/about">Подробнее обо мне <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></div></section>' +
+                '<section class="sec" id="about" aria-labelledby="h-about"><div class="wrap"><div class="about"><div class="about-txt rv"><h2 class="title" id="h-about">Обо мне</h2>' + dlRow() + '<p class="lead2">' + esc(A.shortBio) + '</p><p class="soft">' + esc(A.practice) + '</p><a class="more" href="#/about">подробнее <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></div></section>' +
                 '<section class="sec" style="padding-top:0" aria-labelledby="h-proj"><div class="wrap"><div class="sec-head"><div><h2 class="title" id="h-proj">Избранные проекты</h2></div><span class="label tag">' + TAG('portfolio') + '</span></div><div class="hgrid">' + feat.map(function (p) { return pcard(p, 'home', ''); }).join('') + '</div><div class="more-row"><a class="more" href="#/portfolio">Все проекты <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>' +
                 '<section class="sec" style="padding-top:0" aria-labelledby="h-ex"><div class="wrap"><div class="sec-head"><h2 class="title" id="h-ex">Выставки</h2></div><ul class="exlist">' + ex.map(exRow).join('') + '</ul><div class="more-row"><a class="more" href="#/exhibitions">Все выставки <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>' + contactsBlock(false);
         }
@@ -597,7 +597,7 @@
             setNav(toC ? '/contacts' : (m ? '/portfolio' : page));
             if (!m) {
                 closeModal();
-                if (current) document.title = (current === '/' ? A.name + ' — ' : titles[current] + ' — ') + (current === '/' ? 'Медиахудожник' : A.name);
+                if (current) document.title = A.name;
                 if (toC) scrollToContacts(!fresh);
                 else if (!fresh && page === '/') window.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
             }
