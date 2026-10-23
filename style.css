@@ -202,8 +202,8 @@
         .pf { padding: clamp(40px, 6vw, 72px) 0 clamp(80px, 10vw, 140px); }
         .sgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(32px, 4vw, 48px) var(--gap); align-items: start; }
         .pfx { padding-bottom: clamp(60px, 8vw, 120px); }
-        .pfbar { position: sticky; top: var(--hh); z-index: 40; background: color-mix(in srgb, var(--bg) 78%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: top .45s var(--ease), background .35s; }
-        body.hh .pfbar { top: 0; }
+        .pfbar { position: static; top: auto; z-index: 0; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 0; transition: background .35s; }
+        body.hh .pfbar { top: auto; }
         .pfbar .wrap { display: flex; align-items: center; gap: 20px; padding-top: 12px; padding-bottom: 12px; }
         .pfbar .label { flex: none; }
         .chips { display: flex; gap: 8px; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; padding: 2px 0; }
@@ -587,7 +587,8 @@
         .more-row::before { display: none; }
 
         /* Portfolio filter */
-        .pfbar { background: color-mix(in srgb, var(--bg) 70%, transparent); transition: top .6s var(--ease), background .4s var(--ease); }
+        .pfbar { position: static; top: auto; z-index: 0; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 0; transition: background .35s; }
+        body.hh .pfbar { top: auto; }
         .pfbar .wrap { padding-top: 14px; padding-bottom: 14px; }
         .chips { gap: 0; align-items: center; font-size: 1rem; padding: 6px 0; }
         .chips .dot { color: var(--blue); opacity: .45; margin: 0 .7em; flex: none; }
@@ -648,7 +649,7 @@
         /* Light elements -> #B1CCFF */
         .hero h1 { color: #B1CCFF; }
         body.home .hdr.top .brand { color: #B1CCFF; }
-        body.home .hdr.top .nav a:hover, body.home .hdr.top .nav a[aria-current="page"] { color: #B1CCFF; }
+        body.home .hdr.top .nav a:hover, body.home .hdr.top .nav a[aria-current="page"] { color: #B1CCFF; opacity: 1; }
         .pcard.is-arch .pov, .pcard.is-arch .pt { color: #B1CCFF; }
 
         /* Blue arrows */

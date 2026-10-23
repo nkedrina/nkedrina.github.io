@@ -340,8 +340,7 @@
         function pfHTML() {
             var c = CATS.filter(function (x) { return x.id === pfCat; })[0];
             var list = c ? PROJECTS.filter(function (p) { return p.cat === c.id; }) : PROJECTS;
-            var head = c ? '<div class="psec-head"><h2>' + esc(c.name) + '</h2><p>' + esc(c.text) + '</p></div>' : '';
-            return head + mosaic(list);
+            return mosaic(list);
         }
         function pfUpdate(scroll) {
             var list = $('#pfList'); if (!list) return;
@@ -699,3 +698,4 @@
         normalizeInitialPath();
         route();
     })();
+
