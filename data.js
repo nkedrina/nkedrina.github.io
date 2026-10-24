@@ -43,7 +43,7 @@ var A = {
     cv: 'https://disk.yandex.ru/d/oRAAG1Z6yAfyRg',
     portfolioPdf: 'https://disk.yandex.ru/d/cNEOMvMOL2djXw',
     socials: [
-        { label: 'Instagram', url: 'https://instagram.com/nkedrina' },
+        { label: 'Instagrem*', url: 'https://instagram.com/nkedrina' },
         { label: 'Behance', url: 'https://www.behance.net/nkedrina' }
     ],
     telegram: { label: 'Telegram', url: 'https://t.me/nkedrina' },

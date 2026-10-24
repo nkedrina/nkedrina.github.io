@@ -178,6 +178,40 @@
         .fig img, .pbtn img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s, transform 1s var(--ease); }
         .fig img.on, .pbtn img.on { opacity: 1; }
 
+        /* About photo theme swap (without changing markup) */
+        .about .fig,
+        .abtop .abphoto,
+        .abtop .fig {
+            position: relative;
+            isolation: isolate;
+        }
+        .about .fig::before,
+        .abtop .abphoto::before,
+        .abtop .fig::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('images/me_1.jpg');
+            opacity: 1;
+            transition: background-image .25s ease, opacity .25s ease;
+            z-index: 1;
+        }
+        html[data-theme="light"] .about .fig::before,
+        html[data-theme="light"] .abtop .abphoto::before,
+        html[data-theme="light"] .abtop .fig::before {
+            background-image: url('images/me_2.jpg');
+        }
+        .about .fig img,
+        .abtop .abphoto img,
+        .abtop .fig img {
+            opacity: 0 !important;
+            visibility: hidden;
+            z-index: 0;
+        }
+
         /* Project card */
         .pcard { position: relative; display: flex; flex-direction: column; min-width: 0; }
         .pbtn { display: block; border-radius: 2px; }
@@ -1065,4 +1099,27 @@
     html[data-theme="light"] .hero-role { color: #000016 !important; text-shadow: 0 1px 0 rgba(255,255,255,.25), 0 8px 18px rgba(255,255,255,.18); }
     html[data-theme="light"] .home-hero-toggle { color: #000016 !important; background: rgba(0, 0, 22, .08) !important; }
     html[data-theme="light"] .home-hero-toggle .sw { background: rgba(0, 0, 22, .15); }
+    .social-link { position: relative; display: inline-flex; align-items: center; gap: .2em; }
+    .social-link .meta-note {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 6px);
+        white-space: nowrap;
+        font-size: .62rem;
+        line-height: 1.2;
+        font-style: italic;
+        color: var(--muted, #8aa7c7);
+        opacity: 0;
+        transform: translateY(4px);
+        transition: opacity .18s ease, transform .18s ease;
+        pointer-events: none;
+    }
+    .social-link:hover .meta-note,
+    .social-link:focus-visible .meta-note,
+    .social-link:focus .meta-note {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .social-instagram { position: relative; }
+
 

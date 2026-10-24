@@ -237,7 +237,7 @@
     function closeQuick() { if (quickEl.hidden) return; quickEl.hidden = true; quickEl.innerHTML = ''; document.body.classList.remove('lock'); if (quickFocus && document.contains(quickFocus)) quickFocus.focus({ preventScroll: true }); quickFocus = null; }
 
     var main = $('#main'), hdr = $('#hdr'), current = null;
-    function setHero() { var hero = $('#hero'); if (!hero) return; setTimeout(function () { var src = A.heroImage || makeArt(A.heroArt, 1280, 720, 0); hero.style.setProperty('--hero', 'url("' + src + '")'); }, 0); }
+    function setHero() { var hero = $('#hero'); if (!hero) return; setTimeout(function () { var theme = document.documentElement.getAttribute('data-theme'); var src = theme === 'light' ? 'images/back-video-light.gif' : 'images/back-video-dark.gif'; hero.style.setProperty('--hero', 'url("' + src + '")'); }, 0); }
     function render(page, pid) {
         if (page === '/portfolio') pfCat = 'all';
         main.innerHTML = page === '/project' ? projectHTML(PROJECTS.map(function (p) { return p.id; }).indexOf(pid)) : routes[page]();
@@ -266,7 +266,7 @@
         var y = Math.max(0, window.pageYOffset || 0); hdr.classList.toggle('top', y < 24); if (!document.body.classList.contains('lock')) { var d = y - lastY; if (y < 24) hdr.classList.remove('hide'); else if (d > 6 && y > 120) hdr.classList.add('hide'); else if (d < -6) hdr.classList.remove('hide'); if (Math.abs(d) > 6) lastY = y; } document.body.classList.toggle('hh', hdr.classList.contains('hide'));
     }
     window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); } }, { passive: true }); hdr.addEventListener('focusin', function () { hdr.classList.remove('hide'); });
-    function toggleTheme() { var root = document.documentElement; var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; var apply = function () { root.setAttribute('data-theme', next); }; try { localStorage.setItem('theme', next); } catch (e) {} if (document.startViewTransition && !RM) { document.startViewTransition(apply); } else { root.classList.add('tchg'); apply(); setTimeout(function () { root.classList.remove('tchg'); }, 700); } }
+    function toggleTheme() { var root = document.documentElement; var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; var apply = function () { root.setAttribute('data-theme', next); if (document.body.classList.contains('home')) setHero(); }; try { localStorage.setItem('theme', next); } catch (e) {} if (document.startViewTransition && !RM) { document.startViewTransition(apply); } else { root.classList.add('tchg'); apply(); setTimeout(function () { root.classList.remove('tchg'); }, 700); } }
     var tt;
     function toast(m) { var t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(function () { t.classList.remove('show'); }, 3600); }
     document.addEventListener('click', function (e) {
@@ -293,7 +293,7 @@
     window.addEventListener('hashchange', route);
 
     var initials = A.name.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').toUpperCase();
-    $('#brandFull').textContent = A.name; $('#brandMono').textContent = initials;
+    $('#brandFull').textContent = A.name; $('#brandMono').textContent = '';
     var ftNav = [['#/about', 'обо мне'], ['#/portfolio', 'проекты'], ['#/exhibitions', 'выставки']];
     $('#footer').innerHTML = '<div class="wrap"><div class="ft-top"><div class="ft-id"><p class="ft-name">' + esc(A.name) + '</p></div><div class="ft-cols"><div class="ft-col"><p class="ft-h">навигация</p>' + ftNav.map(function (n) { return '<a href="' + n[0] + '">' + n[1] + '</a>'; }).join('') + '</div><div class="ft-col"><p class="ft-h">контакты</p><a href="mailto:' + esc(A.email) + '">' + esc(A.email) + '</a><a href="' + esc(A.telegram.url) + '" target="_blank" rel="noopener noreferrer">' + esc(A.telegram.label) + '</a>' + A.socials.map(function (s) { return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.label) + '</a>'; }).join('') + '</div></div></div><div class="ft-bot"><span class="label">© ' + new Date().getFullYear() + ' <i class="dot" aria-hidden="true"></i> ' + esc(A.name) + '</span><button class="ft-up" type="button" data-top>наверх <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button></div></div>';
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';

@@ -82,9 +82,17 @@
         var EXH = [
             { id: 'e1', type: 'exh', date: '2026-12', label: '', title: 'Ярмарка СКАН', venue: '', city: 'Красноярск', country: '', url: '' },
             { id: 'e2', type: 'exh', date: '2026-11', label: '', title: 'Мозг. Искусство сознания', venue: 'Галерея Краснохолмская', city: 'Москва', country: '', url: '' },
+            { id: 'e3', type: 'exh', date: '2026-10', label: '', title: 'Волшебная гора', venue: 'KABINET', city: 'Самара', country: '', url: '' },
+            { id: 'e4', type: 'exh', date: '2026-09', label: '', title: 'Завтра и послезавтра', venue: 'Галерея Краснохолмская', city: 'Москва', country: '', url: '' },
             { id: 'e5', type: 'exh', date: '2025-12', label: '', title: 'Национальный центр «Россия»', venue: '', city: 'Ханты-Мансийск', country: '', url: '' },
             { id: 'e6', type: 'exh', date: '2025-11', label: '', title: 'Цифровые чувства. Мультисенсорный поворот', venue: 'Галерея Краснохолмская', city: 'Москва', country: '', url: '' },
-            { id: 'e10', type: 'exh', date: '2024-11', label: '', title: 'Шевелись!', venue: 'ЦСИ Огонь', city: 'Иркутск', country: '', url: '' }
+            { id: 'e7', type: 'exh', date: '2025-10', label: '', title: 'Выставка №37', venue: 'ЦСИ Огонь', city: 'Иркутск', country: '', url: '' },
+            { id: 'e8', type: 'exh', date: '2025-09', label: '', title: 'Энергия как предчувствие', venue: 'Галерея Виктора Бронштейна', city: 'Иркутск', country: '', url: '' },
+            { id: 'e9', type: 'exh', date: '2024-12', label: '', title: 'Детство', venue: 'Арт-пространство Сияние', city: 'Иркутск', country: '', url: '' },
+            { id: 'e10', type: 'exh', date: '2024-11', label: '', title: 'Шевелись!', venue: 'ЦСИ Огонь', city: 'Иркутск', country: '', url: '' },
+            { id: 'f1', type: 'fest', date: '2026-12', label: '', title: 'Открывая Безымянное', venue: 'Озеро Безымянное', city: 'Владивосток', country: '', url: '' },
+            { id: 'f2', type: 'fest', date: '2026-11', label: '', title: 'День открытых дверей студии LYM', venue: 'Студия LYM', city: 'Москва', country: '', url: '' },
+            { id: 'f3', type: 'fest', date: '2025-12', label: '', title: 'Голос Кочевников', venue: 'Село Ацагат', city: 'Бурятия', country: '', url: '' }
         ];
 
         /* ================== Утилиты ================== */
@@ -285,13 +293,24 @@
                 '</div>';
         }
         function contactsBlock(solo) {
-            var links = A.socials.map(function (s) { return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.label) + ' <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i></a>'; }).join('<i class="dot" aria-hidden="true"></i>');
+            var links = A.socials.map(function (s) {
+                var isInstagram = /instagram/i.test(s.label) || /instagram/i.test(s.url);
+                var label = isInstagram ? 'Instagram*' : s.label;
+                var extra = isInstagram ? '<span class="meta-note" aria-hidden="true">*Meta запрещена в РФ</span>' : '';
+                return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer" class="social-link' + (isInstagram ? ' social-instagram' : '') + '">' + esc(label) + extra + ' <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i></a>';
+            }).join('<i class="dot" aria-hidden="true"></i>');
             return '<section class="sec contacts" id="contacts" aria-labelledby="h-contacts"><div class="wrap">' +
                 '<div class="sec-head"><h2 class="title' + (solo ? ' sr' : '') + '" id="h-contacts">контакты</h2><span class="label tag">' + TAG('links') + '</span></div>' +
                 '<div class="cgrid">' +
                 '<div class="cgroup"><h3 class="clabel">соц сети</h3><p class="cline">' + links + '</p></div>' +
                 '<div class="cgroup"><h3 class="clabel">связаться со мной</h3><p class="cline"><a href="mailto:' + esc(A.email) + '">' + esc(A.email) + ' <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i></a><i class="dot" aria-hidden="true"></i><a href="' + esc(A.telegram.url) + '" target="_blank" rel="noopener noreferrer">' + esc(A.telegram.label) + ' <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i></a></p></div>' +
                 '</div></div></section>';
+        }
+        function socialLink(s) {
+            var isInstagram = /instagram/i.test(s.label) || /instagram/i.test(s.url);
+            var label = isInstagram ? 'Instagram*' : s.label;
+            var extra = isInstagram ? '<span class="meta-note" aria-hidden="true">*Meta запрещена в РФ</span>' : '';
+            return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer" class="social-link' + (isInstagram ? ' social-instagram' : '') + '">' + esc(label) + extra + '</a>';
         }
 
         function home() {
@@ -543,7 +562,8 @@
         function setHero() {
             var hero = $('#hero'); if (!hero) return;
             setTimeout(function () {
-                var src = A.heroImage || makeArt(A.heroArt, 1280, 720, 0);
+                var theme = document.documentElement.getAttribute('data-theme');
+                var src = theme === 'light' ? 'images/back-video-light.gif' : 'images/back-video-dark.gif';
                 hero.style.setProperty('--hero', 'url("' + src + '")');
             }, 0);
         }
@@ -616,7 +636,10 @@
         function toggleTheme() {
             var root = document.documentElement;
             var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            var apply = function () { root.setAttribute('data-theme', next); };
+            var apply = function () {
+                root.setAttribute('data-theme', next);
+                if (document.body.classList.contains('home')) setHero();
+            };
             try { localStorage.setItem('theme', next); } catch (e) { }
             if (document.startViewTransition && !RM) { document.startViewTransition(apply); }
             else { root.classList.add('tchg'); apply(); setTimeout(function () { root.classList.remove('tchg'); }, 700); }
@@ -678,7 +701,7 @@
         $('#brandFull').textContent = A.name;
         $('#brandMono').textContent = '';
         var ftNav = [['#/about', 'обо мне'], ['#/portfolio', 'проекты'], ['#/exhibitions', 'выставки']];
-        $('#footer').innerHTML = '<div class="wrap"><div class="ft-top"><div class="ft-id"><p class="ft-name">' + esc(A.name) + '</p></div><div class="ft-cols"><div class="ft-col"><p class="ft-h">навигация</p>' + ftNav.map(function (n) { return '<a href="' + n[0] + '">' + n[1] + '</a>'; }).join('') + '</div><div class="ft-col"><p class="ft-h">контакты</p><a href="mailto:' + esc(A.email) + '">' + esc(A.email) + '</a><a href="' + esc(A.telegram.url) + '" target="_blank" rel="noopener noreferrer">' + esc(A.telegram.label) + '</a>' + A.socials.map(function (s) { return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.label) + '</a>'; }).join('') + '</div></div></div><div class="ft-bot"><span class="label">© ' + new Date().getFullYear() + ' <i class="dot" aria-hidden="true"></i> ' + esc(A.name) + '</span><button class="ft-up" type="button" data-top>наверх <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button></div></div>';
+        $('#footer').innerHTML = '<div class="wrap"><div class="ft-top"><div class="ft-id"><p class="ft-name">' + esc(A.name) + '</p></div><div class="ft-cols"><div class="ft-col"><p class="ft-h">навигация</p>' + ftNav.map(function (n) { return '<a href="' + n[0] + '">' + n[1] + '</a>'; }).join('') + '</div><div class="ft-col"><p class="ft-h">контакты</p><a href="mailto:' + esc(A.email) + '">' + esc(A.email) + '</a><a href="' + esc(A.telegram.url) + '" target="_blank" rel="noopener noreferrer">' + esc(A.telegram.label) + '</a>' + A.socials.map(function (s) { return socialLink(s); }).join('') + '</div></div></div><div class="ft-bot"><span class="label">© ' + new Date().getFullYear() + ' <i class="dot" aria-hidden="true"></i> ' + esc(A.name) + '</span><button class="ft-up" type="button" data-top>наверх <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button></div></div>';
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
         var titleEl = document.querySelector('title');
         if (titleEl && window.MutationObserver) {
