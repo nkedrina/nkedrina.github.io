@@ -14,7 +14,7 @@
             role: 'медиахудожник, TouchDesigner-разработчик',
             cities: ['Иркутск', 'Москва'],
             handle: '@NKEDRINA',
-            heroImage: '',   // URL фонового изображения Hero (пусто — генеративная текстура)
+            heroImage: 'images/back-video-light.gif',   // URL фонового изображения Hero (пусто — генеративная текстура)
             photo: '',       // URL фотографии художника (пусто — заглушка)
             shortBio: 'Родилась в Иркутске. Сейчас живёт в Москве',
             practice: 'Работает с генеративной графикой, светом и физическими интерфейсами, объединяя технологии в единое интерактивное пространство, основанное на чувственном опыте.',
@@ -556,9 +556,9 @@
             document.body.classList.toggle('home', page === '/');
             document.querySelectorAll('.nav a').forEach(function (a) { a.getAttribute('data-p') === page ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
             if (page === '/project') {
-                document.title = PROJECTS.filter(function (p) { return p.id === pid; })[0].title + ' — ' + A.name;
+                document.title = PROJECTS.filter(function (p) { return p.id === pid; })[0].title + ' — @nkedrina';
             } else {
-                document.title = (page === '/' ? A.name + ' — ' : titles[page] + ' — ') + (page === '/' ? 'медиахудожник' : A.name);
+                document.title = page === '/' ? '@nkedrina — медиахудожник' : titles[page] + ' — @nkedrina';
             }
             hydrate(main);
             if (page === '/') setHero();
@@ -589,7 +589,7 @@
             setNav(toC ? '/contacts' : (m ? '/portfolio' : page));
             if (!m) {
                 closeModal();
-                if (current) document.title = A.name;
+                if (current && page === '/') document.title = '@nkedrina';
                 if (toC) scrollToContacts(!fresh);
                 else if (!fresh && page === '/') window.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
             }
@@ -690,6 +690,18 @@
         normalizeInitialPath();
         route();
     })();
+
+
+// Подробное описание проекта.
+// Для своего содержимого задайте в проекте поле blocks, например:
+// blocks: [
+//   { type: 'text', title: 'о проекте', lead: 'Крупный тезис', text: 'Абзац текста' },
+//   { type: 'full', image: 'url', caption: 'Подпись' },
+//   { type: 'grid', images: ['url1', 'url2', 'url3'] },   // от 1 до 6 фото
+//   { type: 'grid', n: 4 }                                // n — число заглушек
+// ]
+// Если blocks не задан, собирается блок по умолчанию (gallery — свои фото).
+
 
 
 
