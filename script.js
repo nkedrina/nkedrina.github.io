@@ -15,9 +15,9 @@
             cities: ['Иркутск', 'Москва'],
             handle: '@NKEDRINA',
             heroImage: 'images/back-video-light.gif',   // URL фонового изображения Hero (пусто — генеративная текстура)
-            photo: '',       // URL фотографии художника (пусто — заглушка)
-            shortBio: 'Родилась в Иркутске. Сейчас живёт в Москве',
-            practice: 'Работает с генеративной графикой, светом и физическими интерфейсами, объединяя технологии в единое интерактивное пространство, основанное на чувственном опыте.',
+            photo: 'images/me_1.jpg',       // URL фотографии художника (пусто — заглушка)
+            shortBio: '',
+            practice: 'Работаю с генеративной графикой, светом и физическими интерфейсами, объединяя технологии в единое интерактивное пространство, основанное на чувственном опыте',
             bio: [
                 'Настя Кедрина – медиахудожник и TouchDesigner-разработчик, родилась в Иркутске. Сейчас живёт и работает в Москве.',
                 'Окончила бакалавриат «Прикладная информатика» ИГУ и продолжила обучение в магистратуре «Технологическое искусство» (ArtTECH) НИТУ МИСИС в Москве.',
@@ -69,10 +69,10 @@
         var PROJECTS = [
             { id: 'aqualumina', title: 'aqualumina', year: 2026, medium: 'Световая инсталляция на воде', desc: 'Фестиваль «Открывая Безымянное», Владивосток, 25–27 сентября 2026.', concept: 'Совместно с Екатериной Мелехиной и Данилом Яновским. Проект создан в рамках магистратуры ArtTECH МИСИС. Фото: Виктора Гоховича.', tech: ['Свет', 'Инсталляция'], exhibitions: ['f1'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'light', art: { style: 'waves', seed: 11, pal: ['#07090c', '#ff5a36', '#f1efe9', '#7c2a18'] } },
             { id: 'untitled-video', title: 'без названия', year: 2026, medium: 'Видео-арт, 2’56’’', desc: 'Ярмарка СКАН, Красноярск, октябрь 2026; «Волшебная гора», KABINET, Самара, август 2026.', concept: '', tech: ['Видео-арт'], exhibitions: ['e1', 'e3'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'video', art: { style: 'streaks', seed: 44, pal: ['#0b0b0c', '#f1efe9', '#ff5a36', '#ffffff'] } },
-            { id: 'mood-mirror', title: 'Чувство дома', year: 2025, medium: 'Цифровое производство, мэппинг-проекция, видео-арт', desc: '«Цифровые чувства. Мультисенсорный поворот», Галерея Краснохолмская, Москва, 2025.', concept: 'Проект создан в рамках магистратуры ArtTECH совместно с Иваном Николаевым и Марией Киселевой.', tech: ['Нейрообруч', 'Интерактивные инсталляции'], exhibitions: ['e6'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'install', art: { style: 'vortex', seed: 7, pal: ['#0b0b0c', '#ff5a36', '#d9d4c7', '#f1efe9'] } },
+            { id: 'mood-mirror', title: 'Чувство дома (мэппинг)', year: 2025, medium: 'Цифровое производство, мэппинг-проекция, видео-арт', desc: '«Цифровые чувства. Мультисенсорный поворот», Галерея Краснохолмская, Москва, 2025.', concept: 'Проект создан в рамках магистратуры ArtTECH совместно с Иваном Николаевым и Марией Киселевой.', tech: ['Нейрообруч', 'Интерактивные инсталляции'], exhibitions: ['e6'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'install', art: { style: 'vortex', seed: 7, pal: ['#0b0b0c', '#ff5a36', '#d9d4c7', '#f1efe9'] } },
             { id: 'oil-tonne', title: 'Вперёд к 14-миллиардной тонне нефти', year: 2025, medium: 'Интерактивная инсталляция', desc: 'Национальный центр «Россия», Ханты-Мансийск, 2025.', concept: '', tech: ['Интерактивные инсталляции'], exhibitions: ['e5'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'install', art: { style: 'bars', seed: 33, pal: ['#141416', '#ff5a36', '#f1efe9', '#6b6860'] } },
-            { id: 'lym-open-day', title: 'День открытых дверей студии LYM (Light Your Mind)', year: 2026, medium: 'Программирование светового оборудования', desc: 'Студия LYM (Light Your Mind), 14 мая 2026, Москва.', concept: 'Фото: @psi_agency.', tech: ['Свет', 'Программирование'], exhibitions: ['f2'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'light', art: { style: 'tunnel', seed: 22, pal: ['#0a0a0b', '#ff5a36', '#f1efe9', '#3a1a12'] } },
-            { id: 'nomad-voice', title: 'Музыкальный фестиваль «Голос Кочевников»', year: 2025, medium: 'Аудиореактивная графика в реальном времени для группы «Вещества»', desc: 'Музыкальный фестиваль «Голос Кочевников», выступление группы «Вещества», Иркутск — Улан-Удэ, 2025.', concept: '', tech: ['AV', 'Аудиореактивная графика'], exhibitions: ['f3'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'av', art: { style: 'streaks', seed: 88, pal: ['#0c0c0d', '#ff5a36', '#f1efe9', '#ffffff'] } },
+            { id: 'lym-open-day', title: 'День открытых дверей студии LYM', year: 2026, medium: 'Программирование светового оборудования', desc: 'Студия LYM (Light Your Mind), 14 мая 2026, Москва.', concept: 'Фото: @psi_agency.', tech: ['Свет', 'Программирование'], exhibitions: ['f2'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'light', art: { style: 'tunnel', seed: 22, pal: ['#0a0a0b', '#ff5a36', '#f1efe9', '#3a1a12'] } },
+            { id: 'nomad-voice', title: 'Голос Кочевников', year: 2025, medium: 'Аудиореактивная графика в реальном времени для группы «Вещества»', desc: 'Музыкальный фестиваль «Голос кочевников», выступление группы «Вещества», Иркутск — Улан-Удэ, 2025.', concept: '', tech: ['AV', 'Аудиореактивная графика'], exhibitions: ['f3'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: true, cat: 'av', art: { style: 'streaks', seed: 88, pal: ['#0c0c0d', '#ff5a36', '#f1efe9', '#ffffff'] } },
             { id: 'yandex-search-day', title: 'День поиска Яндекс', year: 2026, medium: 'Генеративная графика для промо-ролика', desc: 'Ролик на открытие мероприятия, Москва, 2026.', concept: 'Совместно со студией formate.', tech: ['Генеративная графика'], exhibitions: [], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: false, cat: 'gen', art: { style: 'blobs', seed: 55, pal: ['#0f0f10', '#ff5a36', '#f1efe9', '#8a3a22'] } },
             { id: 'consent-machine', title: 'Машина согласия', year: 2026, medium: 'Интерактивная инсталляция, ИИ, веб-страница', desc: '«Мозг. Искусство сознания», Галерея Краснохолмская, Москва.', concept: 'Проект создан в рамках магистратуры ArtTECH МИСИС, 2026.', tech: ['ИИ', 'Интерактивные инсталляции'], exhibitions: ['e2'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: false, cat: 'install', art: { style: 'shards', seed: 66, pal: ['#101012', '#f1efe9', '#3a3a3f', '#ff5a36'] } },
             { id: 'live-energy', title: 'Живая энергия', year: 2025, medium: 'Генеративная графика', desc: '«Энергия как предчувствие», галерея В. Бронштейна, Иркутск, 2025.', concept: 'Инсталляция Григория Свердлова; мэппинг выполнен совместно со Степаном Шоболовым и Алексеем Власевским.', tech: ['Генеративная графика', 'Мэппинг'], exhibitions: ['e8'], links: [], image: '', video: '', gallery: null, tile: [8, 6], featured: false, cat: 'gen', art: { style: 'blobs', seed: 77, pal: ['#0c0c0d', '#ff7a3a', '#ffd9b8', '#c23a1c'] } },
@@ -297,12 +297,12 @@
         function home() {
             var feat = PROJECTS.filter(function (p) { return p.featured; }).slice(0, 6);
             var ex = sortedEx().filter(function (e) { return e.type === 'exh'; }).slice(0, 5);
+            var shortBio = A.shortBio ? '<p class="lead2">' + esc(A.shortBio) + '</p>' : '';
             return '' +
-                '<section class="hero" id="hero" aria-label="Главный экран"><div class="hero-in">' + photoFig('hero-ph') + '<div class="hero-txt"><p class="hero-handle">' + esc(A.handle) + '</p><h1>' + esc(A.name) + '</h1><p class="hero-role">' + esc(A.role) + '<br>' + cityLine() + '</p></div></div>' +
-                '<div class="hero-bot"><button class="hero-tgl" type="button" data-theme-toggle aria-label="Сменить тему"><span class="sw" aria-hidden="true"><span class="kb"><i class="fa-solid fa-moon m"></i><i class="fa-solid fa-sun s"></i></span></span><span>сменить тему</span></button><button class="hint" type="button" data-scroll="#about" aria-label="Прокрутить вниз"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button></div></section>' +
-                '<section class="sec" id="about" aria-labelledby="h-about"><div class="wrap"><div class="about"><div class="about-txt rv"><h2 class="title" id="h-about">обо мне</h2>' + dlRow() + '<p class="lead2">' + esc(A.shortBio) + '</p><p class="soft">' + esc(A.practice) + '</p><a class="more" href="#/about">подробнее <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></div></section>' +
+                '<section class="hero" id="hero" aria-label="Главный экран"><div class="hero-in"><div class="hero-txt"><p class="hero-handle">' + esc(A.handle) + '</p><h1 class="home-hero-name">' + esc(A.name) + '</h1><p class="hero-role">' + esc(A.role) + '<br>' + cityLine() + '</p></div></div><div class="hero-bot"><button class="hero-tgl home-hero-toggle" type="button" data-theme-toggle aria-label="Сменить тему"><span class="sw" aria-hidden="true"><span class="kb"><i class="fa-solid fa-moon m"></i><i class="fa-solid fa-sun s"></i></span></span><span>сменить тему</span></button><button class="hint" type="button" data-scroll="#about" aria-label="Прокрутить вниз"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button></div></section>' +
+                '<section class="sec" id="about" aria-labelledby="h-about"><div class="wrap"><div class="about">' + photoFig('') + '<div class="about-txt rv"><h2 class="title" id="h-about">обо мне</h2>' + dlRow() + shortBio + '<p class="soft">' + esc('работаю с генеративной графикой, светом и физическими интерфейсами, объединяя технологии в единое интерактивное пространство, основанное на чувственном опыте') + '</p><a class="more" href="#/about">подробнее <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></div></section>' +
                 '<section class="sec" style="padding-top:0" aria-labelledby="h-proj"><div class="wrap"><div class="sec-head"><div><h2 class="title" id="h-proj">избранные проекты</h2></div><span class="label tag">' + TAG('portfolio') + '</span></div><div class="hgrid">' + feat.map(function (p) { return pcard(p, 'home', ''); }).join('') + '</div><div class="more-row"><a class="more" href="#/portfolio">все проекты <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>' +
-                '<section class="sec" style="padding-top:0" aria-labelledby="h-ex"><div class="wrap"><div class="sec-head"><h2 class="title" id="h-h-ex">избранные выставки</h2></div><ul class="exlist">' + ex.map(exRow).join('') + '</ul><div class="more-row"><a class="more" href="exhibitions.html">все выставки <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>' + contactsBlock(false);
+                '<section class="sec" style="padding-top:0" aria-labelledby="h-ex"><div class="wrap"><div class="sec-head"><h2 class="title" id="h-ex">избранные выставки</h2></div><ul class="exlist">' + ex.map(exRow).join('') + '</ul><div class="more-row"><a class="more" href="#/exhibitions">все выставки <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>' + contactsBlock(false);
         }
 
         function about() {
@@ -346,7 +346,7 @@
             }
         }
         function portfolio() {
-            var chipList = ['<button class="chip" type="button" data-cat="all" aria-pressed="' + (pfCat === 'all') + '">Все <span class="cn">(' + PROJECTS.length + ')</span></button>'].concat(
+            var chipList = ['<button class="chip" type="button" data-cat="all" aria-pressed="' + (pfCat === 'all') + '">все <span class="cn">(' + PROJECTS.length + ')</span></button>'].concat(
                 CATS.map(function (c) {
                     var n = PROJECTS.filter(function (p) { return p.cat === c.id; }).length;
                     return '<button class="chip" type="button" data-cat="' + c.id + '" aria-pressed="' + (pfCat === c.id) + '">' + esc(c.short) + ' <span class="cn">(' + n + ')</span></button>';
@@ -366,7 +366,7 @@
             var fest = all.filter(function (e) { return e.type === 'fest'; });
             return '' +
                 '<header class="pagehead"><div class="wrap">' +
-                '<h1>Выставки</h1></div></header>' +
+                '<h1>выставки</h1></div></header>' +
                 '<section class="pf" aria-label="Архив выставок"><div class="wrap">' +
                 '<h2 class="sub-h">выставки</h2><ul class="exlist">' + list.map(exRow).join('') + '</ul>' +
                 '<h2 class="sub-h">фестивали / мероприятия</h2><ul class="exlist">' + fest.map(exRow).join('') + '</ul>' +
@@ -437,7 +437,7 @@
             var detail = detailHTML(p);
             return '' +
                 '<div class="ppage"><div class="wrap">' +
-                '<div class="pp-top"><a class="back" href="#/portfolio"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Все проекты</a><span class="label">' + TAG('portfolio') + ' <i class="dot" aria-hidden="true"></i> ' + pad2(i + 1) + ' / ' + pad2(PROJECTS.length) + '</span></div>' +
+                '<div class="pp-top"><a class="back" href="#/portfolio"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> все проекты</a><span class="label">' + TAG('portfolio') + ' <i class="dot" aria-hidden="true"></i> ' + pad2(i + 1) + ' / ' + pad2(PROJECTS.length) + '</span></div>' +
                 '<section class="slide"><figure class="fig mhero" style="aspect-ratio:' + s[0] + '/' + s[1] + '">' + (p.image ? urlImg(p.image, p.title) : artImg(p.art, s[0], s[1], 0, p.title + ', ' + p.year)) + '</figure>' +
                 '<div class="slide-txt"><div><h2>' + esc(p.title) + '</h2><p class="slide-med">' + esc(p.medium) + '</p>' +
                 '<p class="slide-desc">' + esc(p.desc) + '</p>' + (p.concept ? '<p class="slide-con">' + esc(p.concept) + '</p>' : '') +
@@ -445,13 +445,13 @@
                 '<span class="label tag">' + TAG('portfolio') + '</span></div></section>' +
                 (p.video ? '<section class="msec"><h3 class="label">Видео</h3><video class="mvideo" src="' + esc(p.video) + '" controls playsinline preload="metadata"></video></section>' : '') +
                 detail +
-                '<section class="msec"><h3 class="label">Выставки</h3><div>' +
+                '<section class="msec"><h3 class="label">выставки</h3><div>' +
                 (exs.length ? '<ul class="exlist">' + exs.map(exRow).join('') + '</ul>' : '<p class="ph">Информация об участии проекта в выставках пока не добавлена.</p>') +
                 '</div></section>' +
                 (p.links && p.links.length ? '<section class="msec"><h3 class="label">Ссылки</h3><div class="mlinks">' + p.links.map(function (l) { return '<a class="more" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' + esc(l.label) + ' <i class="fa-solid fa-arrow-up-right" aria-hidden="true"></i></a>'; }).join('') + '</div></section>' : '') +
                 '<section class="dend rv"><p class="label">завершение</p><h3 class="dend-t">' + esc(p.title) + '</h3>' +
                 '<p class="dend-m">' + p.year + ' <i class="dot" aria-hidden="true"></i> ' + esc(p.medium) + '</p>' +
-                '<a class="more" href="#/portfolio">Все проекты <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></section>' +
+                '<a class="more" href="#/portfolio">все проекты <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></section>' +
                 '<nav class="mnav mfoot pnav" aria-label="Другие проекты"><a href="#/portfolio/' + prev.id + '"><span class="label"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Предыдущий</span><span class="nm">' + esc(prev.title) + '</span></a>' +
                 '<a href="#/portfolio/' + next.id + '"><span class="label">Следующий <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span><span class="nm">' + esc(next.title) + '</span></a></nav>' +
                 '</div></div>';
@@ -676,7 +676,7 @@
         /* ================== Инициализация ================== */
         var initials = A.name.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').toUpperCase();
         $('#brandFull').textContent = A.name;
-        $('#brandMono').textContent = initials;
+        $('#brandMono').textContent = '';
         var ftNav = [['#/about', 'обо мне'], ['#/portfolio', 'проекты'], ['#/exhibitions', 'выставки']];
         $('#footer').innerHTML = '<div class="wrap"><div class="ft-top"><div class="ft-id"><p class="ft-name">' + esc(A.name) + '</p></div><div class="ft-cols"><div class="ft-col"><p class="ft-h">навигация</p>' + ftNav.map(function (n) { return '<a href="' + n[0] + '">' + n[1] + '</a>'; }).join('') + '</div><div class="ft-col"><p class="ft-h">контакты</p><a href="mailto:' + esc(A.email) + '">' + esc(A.email) + '</a><a href="' + esc(A.telegram.url) + '" target="_blank" rel="noopener noreferrer">' + esc(A.telegram.label) + '</a>' + A.socials.map(function (s) { return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.label) + '</a>'; }).join('') + '</div></div></div><div class="ft-bot"><span class="label">© ' + new Date().getFullYear() + ' <i class="dot" aria-hidden="true"></i> ' + esc(A.name) + '</span><button class="ft-up" type="button" data-top>наверх <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button></div></div>';
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -690,7 +690,6 @@
         normalizeInitialPath();
         route();
     })();
-
 
 // Подробное описание проекта.
 // Для своего содержимого задайте в проекте поле blocks, например:
