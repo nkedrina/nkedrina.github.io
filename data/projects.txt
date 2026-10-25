@@ -14,7 +14,7 @@
 14_baikal:Байкал
 15_prediction:Предсказание
 16_time:Время
-17_voice_of_nomads:Музыкальный фестиваль «Голос Кочевников»
+17_voice_of_nomads:Музыкальный фестиваль «Голос кочевников»
 18_mood_mirror:Mood Mirror
 19_root_day:Root day
 20_subtraction: [вы]читание
