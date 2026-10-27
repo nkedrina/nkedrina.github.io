@@ -14,7 +14,7 @@
             --muted: #1F7CEE;
             --blue: #1F7CEE;
             --line: rgba(177, 204, 255, .18);
-            --accent: #ff4d5e;
+            --accent: #1F7CEE;
             --onacc: #000016;
             --ov: rgba(0, 0, 22, .84);
             --ovfg: #B1CCFF;
@@ -31,7 +31,7 @@
             --muted: #1560cc;
             --blue: #1560cc;
             --line: rgba(0, 0, 22, .16);
-            --accent: #ff4d5e;
+            --accent: #1F7CEE;
             --onacc: #000016;
             --ov: rgba(220, 232, 255, .92);
             --ovfg: #000016;
@@ -84,7 +84,7 @@
             color: #000016;
             --line: rgba(0, 0, 22, .16);
         }
-        .brand { justify-self: start; font-family: var(--mono); font-weight: 500; font-size: .8rem; letter-spacing: .02em; text-transform: none; }
+        .brand { justify-self: start; font-family: var(--sans); font-weight: 700; font-size: clamp(.9rem, 1.2vw, 1.15rem); letter-spacing: -.03em; line-height: 1; text-transform: none; }
         .brand .mono { display: none; }
         .nav { display: flex; gap: clamp(14px, 3vw, 40px); }
         .nav a { position: relative; font-size: .92rem; font-weight: 500; text-transform: none; padding: 6px 0; opacity: .85; transition: opacity .2s; white-space: nowrap; }
